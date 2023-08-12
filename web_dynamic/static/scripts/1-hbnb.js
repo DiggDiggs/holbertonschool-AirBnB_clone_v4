@@ -1,24 +1,17 @@
-<<<<<<< HEAD
 $(document).ready(function() {
-  let listOfCheckedAmenities = [];
-=======
-<head>
-    <!-- Importing jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
-    <!-- Importing the 1-hbnb.js script -->
-    <script src="static/scripts/1-hbnb.js" type="text/javascript"></script>
-</head>
->>>>>>> a7bbe0b52144ceed4bd91e22caf66cc1245f15ad
+  let amenities = {};
 
-  $('li :checkbox').change( function () {
-    const dataName = $(this).attr("data-name");
-
-    if (this.checked) {
-      listOfCheckedAmenities.push(dataName);
+  $('.amenities input[type="checkbox"]').change(function() {
+    if ($(this).is(':checked')) {
+      amenities[$(this).data('id')] = $(this).data('name');
     } else {
-      listOfCheckedAmenities = listOfCheckedAmenities.filter((item) => item !== dataName);
+      delete amenities[$(this).data('id')];
     }
-    $('div.amenities h4').text(listOfCheckedAmenities.join(', '));
+    updateAmenitiesList();
   });
+
+  function updateAmenitiesList() {
+    let list = Object.values(amenities).join(', ');
+    $('.amenities h4').text(list.length > 0 ? list : "\u00A0");
+  }
 });
