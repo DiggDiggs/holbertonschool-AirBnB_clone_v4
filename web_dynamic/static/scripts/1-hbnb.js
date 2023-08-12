@@ -1,7 +1,13 @@
+#!/usr/bin/node
+// Only execute when DOM is loaded
+// Store Amenity, if checked
+// Remove Amenity if box is unchecked.
 $(document).ready(function() {
   let amenities = {};
 
   $('.amenities input[type="checkbox"]').change(function() {
+    
+    
     if ($(this).is(':checked')) {
       amenities[$(this).data('id')] = $(this).data('name');
     } else {
@@ -12,6 +18,6 @@ $(document).ready(function() {
 
   function updateAmenitiesList() {
     let list = Object.values(amenities).join(', ');
-    $('.amenities h4').text(list.length > 0 ? list : "\u00A0");
+    $('.amenities h4').text(amenityList);
   }
 });
