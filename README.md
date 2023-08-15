@@ -151,7 +151,9 @@ EOF  all  create  destroy  help  quit  show  update
 ```
 
 ## Bugs
-No known bugs at this time. 
+We had a bug where our page would show up on other screens but not the host screen.
+Using too new of a version of Python was the main issue we ran into during development.
+Sandbox operations were limiting workflow speed but still functioning and had the necessary tools to run our program after destroying and creating a new sandbox.
 
 ## Authors
 Alexa Orrico - [Github](https://github.com/alexaorrico) / [Twitter](https://twitter.com/alexa_orrico)  
